@@ -89,7 +89,8 @@ class DashboardContentPage extends StatelessWidget {
                 const NeverScrollableScrollPhysics(), // 因为父级是SingleChildScrollView
             crossAxisSpacing: 12,
             mainAxisSpacing: 12,
-            childAspectRatio: 2.8, // 调整宽高比以适应内容
+            // 调整宽高比以防止内部内容溢出
+            childAspectRatio: 1.6,
             children: <Widget>[
               FeatureCard(
                 title: '词汇学习',
