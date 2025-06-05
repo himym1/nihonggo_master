@@ -11,6 +11,8 @@ import 'package:nihongo_master/features/ai_tutor/presentation/screens/ai_tutor_s
 import 'package:nihongo_master/features/kanji/presentation/screens/kanji_list_screen.dart';
 import 'package:nihongo_master/features/grammar/presentation/screens/grammar_course_list_screen.dart';
 import 'package:nihongo_master/features/user_profile/presentation/screens/user_profile_screen.dart';
+import 'package:nihongo_master/features/stats/presentation/screens/stats_screen.dart';
+import 'package:nihongo_master/features/srs/presentation/screens/srs_review_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/splash',
@@ -109,6 +111,16 @@ final GoRouter appRouter = GoRouter(
       builder:
           (BuildContext context, GoRouterState state) =>
               const GrammarCourseListScreen(),
+    ),
+    GoRoute(
+      path: '/stats',
+      builder: (BuildContext context, GoRouterState state) =>
+          const StatsScreen(),
+    ),
+    GoRoute(
+      path: '/srs-review',
+      builder: (BuildContext context, GoRouterState state) =>
+          const SrsReviewScreen(),
     ),
   ],
 );

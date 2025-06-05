@@ -457,6 +457,42 @@ void main() {
   );
 
   testWidgets(
+    'Navigate from DashboardContentPage to StatsScreen (push) and verify UI',
+    (WidgetTester tester) async {
+      await navigateToHome(tester);
+      expect(find.byType(DashboardContentPage), findsOneWidget);
+
+      await tester.tap(find.widgetWithText(TextButton, '查看详情'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(StatsScreen), findsOneWidget);
+      expect(find.widgetWithText(AppBar, '学习统计'), findsOneWidget);
+
+      await tester.pageBack();
+      await tester.pumpAndSettle();
+      expect(find.byType(DashboardContentPage), findsOneWidget);
+    },
+  );
+
+  testWidgets(
+    'Navigate from DashboardContentPage to SrsReviewScreen (push) and verify UI',
+    (WidgetTester tester) async {
+      await navigateToHome(tester);
+      expect(find.byType(DashboardContentPage), findsOneWidget);
+
+      await tester.tap(find.widgetWithText(FilledButton, '开始学习'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(SrsReviewScreen), findsOneWidget);
+      expect(find.widgetWithText(AppBar, 'SRS 复习'), findsOneWidget);
+
+      await tester.pageBack();
+      await tester.pumpAndSettle();
+      expect(find.byType(DashboardContentPage), findsOneWidget);
+    },
+  );
+
+  testWidgets(
     'UserProfileScreen navigation via BottomNav, UI elements, and logout',
     (WidgetTester tester) async {
       await navigateToHome(tester);
